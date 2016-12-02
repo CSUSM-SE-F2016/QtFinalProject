@@ -18,10 +18,13 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>60</y>
+      <y>50</y>
       <width>141</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 5px solid black</string>
     </property>
     <property name="text">
      <string/>
@@ -50,54 +53,21 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>210</y>
+      <y>190</y>
       <width>121</width>
       <height>61</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="pics.qrc">:/Downloads/LogoScopic(1).png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="schoolLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>340</y>
-      <width>81</width>
-      <height>41</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border: 2px solid darkkhaki;
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 200;
+}</string>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="pics.qrc">:/Icons/Diploma-Certificate-icon.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="majorLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>390</y>
-      <width>81</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="pics.qrc">:/Icons/Science-School-icon.png</pixmap>
+     <string>User Info</string>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -106,8 +76,8 @@
    <widget class="QLabel" name="noteSpaceLogo">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>20</y>
+      <x>650</x>
+      <y>30</y>
       <width>101</width>
       <height>91</height>
      </rect>
@@ -122,79 +92,104 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="userNameLine">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>290</y>
-      <width>113</width>
-      <height>22</height>
+      <x>310</x>
+      <y>30</y>
+      <width>311</width>
+      <height>471</height>
      </rect>
     </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    border: 2px solid darkkhaki;
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 200;
+	background: color white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Notes:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="userNotesList"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="listOpenButton">
+       <property name="text">
+        <string>Open Note</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLineEdit" name="schoolLine">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>350</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="majorLine">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>400</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="load">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>460</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Load</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="userNameLabel">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
-      <width>81</width>
-      <height>51</height>
+      <y>260</y>
+      <width>271</width>
+      <height>241</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="pics.qrc">:/pics/Icons/search_files.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Username:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="userNameLine"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Major: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="schoolLine"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>School: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="majorLine"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>PictureIcon</zorder>
    <zorder>connectionLabelStatus</zorder>
    <zorder>infoLabel</zorder>
-   <zorder>schoolLabel</zorder>
-   <zorder>majorLabel</zorder>
    <zorder>noteSpaceLogo</zorder>
-   <zorder>userNameLine</zorder>
-   <zorder>schoolLine</zorder>
-   <zorder>userNameLabel</zorder>
-   <zorder>majorLine</zorder>
-   <zorder>load</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

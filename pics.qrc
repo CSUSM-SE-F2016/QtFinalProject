@@ -3,6 +3,7 @@
         <file>Icons/edit-file-icon.png</file>
         <file>Icons/new-file-icon.png</file>
         <file>Icons/search_files.png</file>
+        <file>Icons/Actions-color-picker-black-icon.png</file>
     </qresource>
     <qresource prefix="/">
         <file>Icons/logout-icon.png</file>
@@ -28,5 +29,9 @@
         <file>Icons/noteSpaceLogo.png</file>
         <file>../../../Downloads/SpotifySetup.exe</file>
         <file>../../../Downloads/SourceTreeSetup_1.9.6.1.exe</file>
+        <file>Icons/text-bold-icon.png</file>
+        <file>Icons/text-italic-icon.png</file>
+        <file>Icons/text-underline-icon.png</file>
+        <file>Icons/font-colors-icon.png</file>
     </qresource>
 </RCC>

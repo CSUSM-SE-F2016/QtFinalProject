@@ -8,6 +8,7 @@
 #include <search.h>
 #include <QMenu>
 #include "note.h"
+#include "profile.h"
 
 #include <QDialog>
 
@@ -21,6 +22,7 @@ class SearchNote : public QDialog
 
 public:
     explicit SearchNote(QWidget *parent = 0);
+    explicit SearchNote (QWidget *parent, Note list);
     ~SearchNote();
 
 private slots:
@@ -32,6 +34,12 @@ private slots:
 
 private:
     Ui::SearchNote *ui;
+    Note tempList;
+
+public:
+    Note returnNoteList();
+
+
 };
 
 #endif // SEARCHNOTE_H

@@ -60,7 +60,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QTextBrowser" name="previewWindow"/>
+     <widget class="QTextEdit" name="previewTextEdit"/>
     </item>
    </layout>
   </widget>

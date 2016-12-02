@@ -25,7 +25,8 @@ HEADERS  += login.h \
     note.h \
     createuser.h \
     profile.h \
-    notecreator.h
+    notecreator.h \
+    singlenton.h
 
 FORMS    += login.ui \
     searchnote.ui \

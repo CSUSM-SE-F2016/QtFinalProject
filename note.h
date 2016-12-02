@@ -9,8 +9,10 @@ struct oneNote {
     int NoteId;
     QString noteName;
     QString noteComments; //store the comments
-    QString noteCourse;
+    QString noteMajor;
+    QString noteSchool;
     QString pateString;
+    QString noteContent;
 };
 
 
@@ -19,15 +21,22 @@ class Note : public oneNote {
 private:
     oneNote myList[10];
     int indexCounter;
-    void readFile(std::string fileName);
-    void linkFile(std::string fileName, std::string newFile);
 
 public:
     Note();
     Note(QString name);
-    void addNote(QString note);
+    Note(QString name, QString school, QString major);
+    void addNote(oneNote note);
     void printNoteList();
-    void writeNote(std::string fileName, std::string noteName);
+
+    //populate a sample list
+    void populate();
+    oneNote returnNote(int index);
+    oneNote searchNoteName(QString name);
+    int returnIndexCounter();
+
+
+
 
     //void changeName(std::string name);
     //void addComments(std::string comments);

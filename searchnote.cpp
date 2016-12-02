@@ -12,6 +12,26 @@ SearchNote::SearchNote(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
+/*//////////////////////////////////////////////////////////////////
+ * second constructor use for the purpose of passing the noteList
+ * notelist will be use to store the notes passed
+ *
+ */
+
+SearchNote::SearchNote(QWidget *parent, Note list) :
+    QDialog(parent),
+    ui(new Ui::SearchNote)
+{
+    ui->setupUi(this);
+    tempList = list;
+}
+
+
+/*
+ * default destructor//////////////////////////////////////////////////
+ */
+
 SearchNote::~SearchNote()
 {
     delete ui;
@@ -25,7 +45,7 @@ void SearchNote::on_searchButton_clicked()
     if(!myFile.open(QIODevice::ReadOnly))
         QMessageBox::information(0, "info", myFile.errorString());
     QTextStream in(&myFile);
-    ui->previewWindow->setText(in.readAll());
+    ui->previewTextEdit->setText(in.readAll());
 }
 
 
@@ -36,8 +56,22 @@ void SearchNote::on_searchButton_clicked()
 void SearchNote::on_addNoteYes_clicked()
 {
     QString name = ui->nameLineEdit->text();
+    QString school = ui->schoolLineEdit->text();
+    QString major = ui->majorLineEdit->text();
+    oneNote temp;
+    temp.noteName = name;
+    temp.noteMajor = major;
+    temp.noteSchool = school;
+    tempList.addNote(temp);
 
+    this->hide();
+
+
+    //this->connect()
+    //QString get = tempList.returnNote(0).noteName;
+    //qDebug() << get;
 }
+
 
 //add note button
 //must add to the array of list
@@ -45,4 +79,12 @@ void SearchNote::on_addNoteYes_clicked()
 void SearchNote::on_quitButton_clicked()
 {
     this->hide();
+}
+
+
+/*
+ * return the tempList
+ */
+Note SearchNote::returnNoteList(){
+    return tempList;
 }

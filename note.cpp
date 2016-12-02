@@ -22,9 +22,24 @@ Note::Note(QString name) {
     indexCounter++;
 }
 
+
+/*
+ * Note creator constructor use to populate a note in one full constructor
+ */
+Note::Note(QString name, QString school, QString major){
+    oneNote temp;
+    temp.noteName = name;
+    temp.noteMajor = major;
+    temp.noteSchool = school;
+
+    //put the newly added note to the list
+    myList[indexCounter] = temp;
+    indexCounter++;
+}
+
 void Note::printNoteList() {
 
-    cout << "---------------Note List-----------------" << endl;
+
 
     for (int i = 0; i < indexCounter; i++) {
         oneNote current;
@@ -35,67 +50,53 @@ void Note::printNoteList() {
 }
 
 
-void Note::addNote(QString note) {
+void Note::addNote(oneNote note) {
+    //check if the the list is empty
+    if(indexCounter == 0){
+        myList[indexCounter] = note;
 
-    oneNote current;
-    current.noteName = note;
-    current.NoteId = indexCounter; //save the index counter as an ID
-    myList[indexCounter] = current;
-    indexCounter++;
+    }
+    else{
+        indexCounter++;
+        myList[indexCounter] = note;
+    }
 }
 
 
-/*void Note::writeNote(string fileName, string noteName) {
-    cout << "------------------------------------------------" << endl;
-    cout << endl;
-    cout << "Content on file: " << endl;
-    cout << "***********************************************" << endl;
-    this->readFile(fileName);
-    cout << "-----------------------------------------------" << endl;
-    cout << "Add File?(Yes or No): ";
-    string answer;
-    cin >> answer;
-    if (answer == "Yes") {
-        this->linkFile(fileName, noteName);
-    }
-    else {
-        cout <<"File not added" << endl;
+//test the list populate
+void Note::populate(){
+    for(int i = 0; i < 10; i++){
+        oneNote temp;
+        temp.noteName = QString::number(i) + "Note";
+        myList[i] = temp;
     }
 
+}
 
-}*/
+oneNote Note::returnNote(int index){
+    return myList[index];
+}
 
 
-
-void Note::readFile(string fileName) {
-    string line;
-    ifstream myfile(fileName);
-    if (myfile.is_open())
-    {
-        while (getline(myfile, line))
-        {
-            cout << line << '\n';
+oneNote Note::searchNoteName(QString name){
+    for(int i = 0; i < 10; i++){
+        if(myList[i].noteName == name){
+            return myList[i];
         }
-        myfile.close();
+        if(i >= 10){
+            exit;
+        }
     }
-    else cout << "Unable to open file";
-
 }
 
 
 
-void Note::linkFile(string fileName, string newFile) {
-    ifstream fin;
-    fin.open(fileName);
-    ofstream fout;
-    fout.open(newFile);
-    char ch;
-    while (!fin.eof()) {
-        fin.get(ch);
-        fout << ch;
-    }
-    fin.close();
+//know how manny notes are in the list
+int Note::returnIndexCounter(){
+    return indexCounter;
 }
+
+
 
 /*void Note::addComments(string comments) {
 //noteComments = comments;

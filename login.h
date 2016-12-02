@@ -7,6 +7,7 @@
 #include <QFileInfo>
 #include "profile.h"
 #include "createuser.h"
+#include "qdebug.h"
 
 
 namespace Ui {
@@ -16,6 +17,8 @@ class Login;
 class Login : public QMainWindow
 {
     Q_OBJECT
+
+
 
 public:
     QSqlDatabase myDataBase;
@@ -60,9 +63,17 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_signUpButton_clicked();
+
+    void on_quitButton_clicked();
+
 private:
     Ui::Login *ui;
-    //Profile *userProfile;
+   // Profile userProfile;
+
+    //inner functions
+public:
+    bool checkForRepeatedUser(QString user);
 };
 
 #endif // LOGIN_H
